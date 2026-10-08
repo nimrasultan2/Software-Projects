@@ -1,53 +1,99 @@
+# Veloce
 
-# Target Practice: Creative Coding & Coordinate-Based Logic
+> A cinematic automotive digital experience — built to feel as fast as the machines it showcases.
 
-## Project Overview
-
-This project is an interactive 2D archery simulator developed using the **p5.py** framework. Moving beyond basic scripting, this project implements a continuous **Draw Loop** architecture to handle real-time rendering, user input, and collision detection between dynamic objects and static targets.
-
-The goal was to build a visually responsive environment while maintaining **human-readable** conditional logic to handle scoring and game states.
+A visually immersive, scroll-driven landing page for a fictional performance automotive brand. Built with **HTML, CSS, and JavaScript**, powered by **GSAP** for smooth, cinematic animations.
 
 ---
 
-## System Architecture
+##  About
 
-The game follows the standard **p5** lifecycle:
-
-* **Setup Phase:** Initializes the canvas environment, target coordinates, and initial score states.
-* **Draw Loop (Rendering):** A continuous 60fps refresh cycle that monitors arrow position and updates the visual output.
-* **Interaction Layer:** Leverages the `mouse_pressed` or `key_pressed` listeners to inject velocity into the projectile object.
+**Veloce** is a single-page, cinematic web experience for a fictional automotive brand. It walks the visitor through a performance narrative — from an animated loading screen, through performance stats and vehicle showcases, to a full-screen closing call to action — all tied together with smooth scroll-triggered animations and a dark, high-contrast aesthetic.
 
 ---
 
-## Key Development Phases
+##  Features
 
-### 1. Canvas Vector Mapping
-
-Using p5’s coordinate system, I mapped the target rings as concentric circles. This involved defining precise boundaries for the `red`, `yellow`, and `green` zones to prepare for pixel-perfect collision detection.
-
-### 2. The "Get" Pixel Logic
-
-Instead of complex geometric distance formulas, I implemented a **Color-Based Collision Engine**. By using the `get(x, y)` function, the game "reads" the color of the pixel where the arrow lands:
-
-* **Legendary Shot (Green):** Identifies the highest difficulty zone.
-* **Precision Hit (Yellow):** Mid-tier performance tracking.
-* **Standard Hit (Red):** Baseline accuracy validation.
-
-### 3. Dynamic Text Output
-
-I integrated a real-time feedback system that pipes game data directly to the console/UI, translating technical color-data into human-readable scoring milestones (`score = score + 500`).
+- **Animated Loading Screen** — Branded preloader with a percentage counter and progress bar.
+- **Hero Section** — Full-screen opening with parallax car imagery, glow effects, and a scroll cue.
+- **Performance Stats** — Animated counters (0–100, top speed, power, range) that tick up on scroll.
+- **Vehicle Showcase** — Three interactive, tilt-enabled vehicle cards with hover shine and specs.
+- **Design Section** — Split layout highlighting the design language with layered imagery.
+- **Cinematic Gallery** — Staggered, scroll-revealed detail shots in a mixed-size grid.
+- **Closing CTA** — Full-bleed experience section with a background image and overlay.
+- **Sticky Navbar** — Desktop nav with smooth-scroll anchor links and a mobile hamburger menu.
+- **Custom Typography** — Uses `Lobster` from Google Fonts, with a stylized `V/E` wordmark.
 
 ---
 
-## Tech Stack & SQL-Style Logic
+##  Tech Stack
 
-* **Framework:** p5.py (Processing for Python)
-* **Logic Flow:** Multi-branch `if-elif` conditional structures.
-* **Rendering:** Procedural 2D primitives (`ellipse`, `rect`).
-* **Input Handling:** Interactive event listeners for seamless gameplay.
+| Layer     | Technology                     |
+| --------- | ------------------------------ |
+| Markup    | HTML5                          |
+| Styling   | CSS3                           |
+| Logic     | Vanilla JavaScript             |
+| Animation | GSAP + ScrollTrigger (via CDN) |
+| Fonts     | Google Fonts (Lobster)         |
+
+> No build tools or package manager required — GSAP loads from a CDN.
 
 ---
 
-## Key Insights
+##  Project Structure
 
-> Transitioning to the **p5 Draw Loop** allowed for a much smoother frame rate compared to traditional procedural libraries. By leveraging color-sampling for collision detection, the system remains computationally efficient even as more visual elements are added to the canvas.
+```
+veloce/
+├── index.html          # Main HTML — loader, nav, all sections, footer
+├── style.css           # All styles
+├── script.js           # Loader, animations, menu, counters, tilt
+└── assets/
+    ├── hero-car.jpg
+    ├── car-01.jpg
+    ├── car-02.jpg
+    ├── car-03.jpg
+    ├── gallery-01.jpg
+    ├── gallery-02.jpg
+    └── gallery-03.jpg
+```
+
+---
+
+##  Getting Started
+
+1. **Clone or download** the repository.
+2. Ensure `style.css`, `script.js`, and the `assets/` folder sit alongside `index.html`.
+3. **Open `index.html`** in a modern browser.
+
+No install or build step required. GSAP is loaded from a CDN, so an internet connection is needed for animations on first load.
+
+**Optional — serve locally:**
+
+```bash
+# Using Python
+python -m http.server
+
+# Or use the VS Code Live Server extension
+```
+
+---
+
+##  How It Works
+
+- **Loader:** On page load, a percentage counter and progress bar animate, then fade the loader out to reveal the hero.
+- **Smooth scrolling:** All nav and CTA links use `#anchor` targets for smooth in-page navigation.
+- **Scroll animations:** GSAP `ScrollTrigger` reveals `.reveal` elements as they enter the viewport.
+- **Animated stats:** Elements with `data-target` count up from `0` to their target value when scrolled into view.
+- **Parallax:** The hero image uses a `data-speed` attribute for subtle parallax movement.
+- **Tilt cards:** `.tilt-card` vehicle cards respond to mouse movement with a 3D tilt effect and shine.
+- **Mobile menu:** `#menuToggle` opens/closes `#mobileMenu` for small screens.
+
+---
+
+##  Status
+
+Personal / portfolio project. **Front-end only** — no backend or data persistence.
+
+---
+
+<p align="center">Veloce — engineered for the next move. 🏁</p>
