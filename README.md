@@ -1,53 +1,80 @@
 
-# Target Practice: Creative Coding & Coordinate-Based Logic
+# FRONTIER-X
 
-## Project Overview
+> A front-end project & team workspace that brings projects, tasks, and people into a single clear dashboard.
 
-This project is an interactive 2D archery simulator developed using the **p5.py** framework. Moving beyond basic scripting, this project implements a continuous **Draw Loop** architecture to handle real-time rendering, user input, and collision detection between dynamic objects and static targets.
-
-The goal was to build a visually responsive environment while maintaining **human-readable** conditional logic to handle scoring and game states.
+Built entirely with vanilla **HTML, CSS, and JavaScript** — no frameworks, no backend, no build tools.
 
 ---
 
-## System Architecture
+##  About
 
-The game follows the standard **p5** lifecycle:
+FRONTIER-X is a single-page application (SPA) that simulates a team productivity workspace. It lets you view projects, manage tasks on a kanban-style board, track team members, and follow activity — all in one place.
 
-* **Setup Phase:** Initializes the canvas environment, target coordinates, and initial score states.
-* **Draw Loop (Rendering):** A continuous 60fps refresh cycle that monitors arrow position and updates the visual output.
-* **Interaction Layer:** Leverages the `mouse_pressed` or `key_pressed` listeners to inject velocity into the projectile object.
+Navigation happens entirely client-side via view switching, with no page reloads.
 
 ---
 
-## Key Development Phases
+##  Features
 
-### 1. Canvas Vector Mapping
-
-Using p5’s coordinate system, I mapped the target rings as concentric circles. This involved defining precise boundaries for the `red`, `yellow`, and `green` zones to prepare for pixel-perfect collision detection.
-
-### 2. The "Get" Pixel Logic
-
-Instead of complex geometric distance formulas, I implemented a **Color-Based Collision Engine**. By using the `get(x, y)` function, the game "reads" the color of the pixel where the arrow lands:
-
-* **Legendary Shot (Green):** Identifies the highest difficulty zone.
-* **Precision Hit (Yellow):** Mid-tier performance tracking.
-* **Standard Hit (Red):** Baseline accuracy validation.
-
-### 3. Dynamic Text Output
-
-I integrated a real-time feedback system that pipes game data directly to the console/UI, translating technical color-data into human-readable scoring milestones (`score = score + 500`).
+- **Home / Landing** — Hero section introducing the workspace, with quick entry points into the Dashboard or Projects view.
+- **Dashboard** — Command center showing key stats, project progress bars, and a recent activity timeline.
+- **Projects** — A list view of all active initiatives with progress tracking.
+- **Task Matrix** — Kanban-style task board featuring:
+  - Search
+  - Status filters (All, Backlog, Active, Review, Completed)
+  - Add-task modal for creating new tasks
+- **Team** — Grid of team members showing who's working on what.
+- **Activity** — Chronological timeline of every change made in the workspace.
+- **Navigation** — Sticky navbar with search, dynamically rendered nav links, and a responsive mobile hamburger menu.
 
 ---
 
-## Tech Stack & SQL-Style Logic
+##  Tech Stack
 
-* **Framework:** p5.py (Processing for Python)
-* **Logic Flow:** Multi-branch `if-elif` conditional structures.
-* **Rendering:** Procedural 2D primitives (`ellipse`, `rect`).
-* **Input Handling:** Interactive event listeners for seamless gameplay.
+| Layer   | Technology            |
+| ------- | --------------------- |
+| Markup  | HTML5                 |
+| Styling | CSS3                  |
+| Logic   | Vanilla JavaScript    |
+
+> No build tools, no dependencies, no backend. Just open `index.html` in a browser.
 
 ---
 
-## Key Insights
+##  Project Structure
 
-> Transitioning to the **p5 Draw Loop** allowed for a much smoother frame rate compared to traditional procedural libraries. By leveraging color-sampling for collision detection, the system remains computationally efficient even as more visual elements are added to the canvas.
+```
+frontier-x/
+├── index.html          # Main HTML — all views + modal
+├── style.css           # All styles
+├── script.js           # App logic: rendering, state, navigation
+└── assets/
+    ├── hero-robots.png
+    └── dashboard-hero.jpg
+```
+
+---
+
+##  Getting Started
+
+1. **Clone or download** the repository.
+2. Ensure `style.css`, `script.js`, and the `assets/` folder are in the same directory as `index.html`.
+3. **Open `index.html`** in any modern browser.
+
+No install, no server required.
+
+**Optional — serve locally:**
+
+```bash
+# Using Python
+python -m http.server
+
+# Or use the VS Code Live Server extension
+```
+
+---
+
+## 📌 Status
+
+Personal / portfolio project. **Front-end only** — data is held in JavaScript with no persistence layer.
