@@ -1,0 +1,308 @@
+:root {
+  --paper: #f9f6ef;
+  --ink: #181712;
+  --line: rgba(24, 23, 18, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", sans-serif;
+}
+
+.mono {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  background: rgba(249, 246, 239, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+  z-index: 20;
+}
+
+.hero {
+  padding: 62px 3.5vw 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      60% 40% at 15% 20%,
+      rgba(196, 154, 107, 0.13),
+      transparent 60%
+    ),
+    radial-gradient(
+      50% 40% at 85% 75%,
+      rgba(46, 52, 64, 0.06),
+      transparent 60%
+    );
+  background-size: 200% 200%;
+  animation: backgroundMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 50% 40%;
+  }
+
+  100% {
+    background-position: 100% 80%;
+  }
+}
+
+.intro {
+  position: relative;
+  text-align: center;
+  max-width: 850px;
+  margin: 35px auto 55px;
+}
+
+.quote {
+  font-family: "Newsreader", serif;
+  font-size: 42px;
+  line-height: 1.2;
+}
+
+.intro-small {
+  margin-top: 20px;
+  color: rgba(24, 23, 18, 0.55);
+}
+
+.gallery {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 1450px;
+  margin: auto;
+}
+
+.tile {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s;
+}
+
+.tile:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(24, 23, 18, 0.13);
+  z-index: 2;
+}
+
+.tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tile:hover img {
+  transform: scale(1.06);
+}
+
+.meta {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 12px;
+  background: linear-gradient(
+    to top,
+    rgba(249, 246, 239, 0.96),
+    transparent
+  );
+}
+
+.small {
+  height: 300px;
+}
+
+.medium {
+  height: 400px;
+}
+
+.tall {
+  height: 540px;
+}
+
+.large {
+  height: 600px;
+  grid-column: span 2;
+}
+
+.wide {
+  height: 430px;
+  grid-column: span 2;
+}
+
+.reveal {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+}
+
+.float {
+  animation: floating 5s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 1000px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .large,
+  .wide {
+    grid-column: span 2;
+  }
+
+  .small,
+  .medium,
+  .tall {
+    height: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .top span:last-child {
+    display: none;
+  }
+
+  .hero {
+    padding: 58px 16px 30px;
+  }
+
+  .intro {
+    margin: 25px auto 40px;
+  }
+
+  .quote {
+    font-size: 30px;
+  }
+
+  .gallery {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .large,
+  .wide {
+    grid-column: span 1;
+  }
+
+  .small,
+  .medium,
+  .tall,
+  .large,
+  .wide {
+    height: 380px;
+  }
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(24, 23, 18, 0.78);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 100;
+}
+
+.lightbox.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  max-width: 90vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.lightbox.show img {
+  transform: scale(1);
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: var(--paper);
+  font-size: 38px;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 101;
+}
+
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 20px;
+  }
+
+  .lightbox img {
+    max-width: 94vw;
+    max-height: 82vh;
+  }
+
+  .close {
+    top: 12px;
+    right: 18px;
+  }
+}
