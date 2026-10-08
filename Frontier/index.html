@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>FRONTIER-X</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-left">
+        <span class="wordmark serif"
+          >FRONTIER<span class="accent">-X</span></span
+        >
+        <ul class="nav-links" id="navLinks"></ul>
+      </div>
+      <div class="nav-right">
+        <input
+          id="navSearch"
+          placeholder="Search…"
+          oninput="quickSearch(this.value)"
+        />
+        <button
+          class="hamburger"
+          onclick="
+            document.getElementById('mobileMenu').classList.toggle('open')
+          "
+        >
+          ☰
+        </button>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu"></div>
+
+    <main>
+      <section id="view-home" class="view">
+        <div class="home-hero">
+          <div>
+            <div class="home-eyebrow">Project &amp; Team Workspace</div>
+            <h1 class="serif home-title">
+              Run the whole team from <span class="accent">one frontier.</span>
+            </h1>
+            <p class="home-desc">
+              FRONTIER-X brings your projects, tasks, and people into a single
+              clear workspace. Plan the work, track what's moving, see who's
+              doing what, and keep everyone aligned without switching between
+              five different tools.
+            </p>
+            <div class="home-cta">
+              <button class="btn-cta" onclick="showView('dashboard')">
+                Enter Dashboard →
+              </button>
+              <button class="btn-ghost" onclick="showView('projects')">
+                View Projects
+              </button>
+            </div>
+          </div>
+          <div class="home-art">
+            <img
+              src="assets/hero-robots.png"
+              alt="Automated workspace illustration"
+            />
+          </div>
+        </div>
+
+        <div class="home-strip" id="homeStrip"></div>
+
+        <h2 class="section-title">What's inside</h2>
+        <div class="home-features">
+          <div class="feature-block">
+            <div class="feature-icon"></div>
+            <div class="feature-title serif">Projects</div>
+            <div class="feature-desc">
+              Every initiative laid out with real progress, not guesswork — see
+              exactly how far along each one is.
+            </div>
+          </div>
+          <div class="feature-block">
+            <div class="feature-icon"></div>
+            <div class="feature-title serif">Task Matrix</div>
+            <div class="feature-desc">
+              Backlog to done in one board. Filter, search, and move work
+              forward without the busywork.
+            </div>
+          </div>
+          <div class="feature-block">
+            <div class="feature-icon"></div>
+            <div class="feature-title serif">Team</div>
+            <div class="feature-desc">
+              Know who's working, who's away, and who has room to pick up the
+              next task.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-dashboard" class="view">
+        <div class="hero-row">
+          <div class="hero-art">
+            <img src="assets/dashboard-hero.jpg" alt="Command center setup" />
+          </div>
+          <div class="hero-text">
+            <div class="row-between eyebrow">
+              <span>WORKSPACE OVERVIEW</span><span id="todayDate"></span>
+            </div>
+            <h1 class="serif hero-title">Command<br />Center</h1>
+            <p class="subtitle">
+              A clear view of what's moving across FRONTIER-X.
+            </p>
+            <div class="stat-list" id="statsGrid"></div>
+          </div>
+        </div>
+        <div class="split-row">
+          <div>
+            <h2 class="section-title">Project Progress</h2>
+            <div id="dashProgress"></div>
+          </div>
+          <div>
+            <h2 class="section-title">Recent Activity</h2>
+            <div id="dashActivity" class="timeline"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="view-projects" class="view">
+        <h1 class="page-title serif">Projects</h1>
+        <p class="subtitle">Track progress across active initiatives.</p>
+        <div id="projectsList"></div>
+      </section>
+
+      <section id="view-tasks" class="view">
+        <h1 class="page-title serif">Task Matrix</h1>
+        <p class="subtitle">See what needs attention across every project.</p>
+        <div class="toolbar">
+          <input
+            id="taskSearch"
+            placeholder="Search tasks…"
+            oninput="renderTasks()"
+          />
+          <button
+            class="filter-btn active"
+            data-f="All"
+            onclick="setFilter('All')"
+          >
+            All
+          </button>
+          <button
+            class="filter-btn"
+            data-f="Backlog"
+            onclick="setFilter('Backlog')"
+          >
+            Backlog
+          </button>
+          <button
+            class="filter-btn"
+            data-f="Active"
+            onclick="setFilter('Active')"
+          >
+            Active
+          </button>
+          <button
+            class="filter-btn"
+            data-f="Review"
+            onclick="setFilter('Review')"
+          >
+            Review
+          </button>
+          <button
+            class="filter-btn"
+            data-f="Completed"
+            onclick="setFilter('Completed')"
+          >
+            Completed
+          </button>
+          <button class="btn-primary" onclick="openModal()">+ Add Task</button>
+        </div>
+        <div class="matrix" id="taskMatrix"></div>
+      </section>
+
+      <section id="view-team" class="view">
+        <h1 class="page-title serif">Team</h1>
+        <p class="subtitle">See who's working on what.</p>
+        <div class="team-grid" id="teamGrid"></div>
+      </section>
+
+      <section id="view-activity" class="view">
+        <h1 class="page-title serif">Activity</h1>
+        <p class="subtitle">Every change, in order.</p>
+        <div class="timeline" id="activityList"></div>
+      </section>
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+      <div class="modal">
+        <h3 class="serif">Add Task</h3>
+        <div class="field"><label>Task name</label><input id="fName" /></div>
+        <div class="field">
+          <label>Project</label
+          ><select id="fProject"></select>
+        </div>
+        <div class="field">
+          <label>Assignee</label
+          ><select id="fAssignee"></select>
+        </div>
+        <div class="field">
+          <label>Priority</label
+          ><select id="fPriority">
+            <option>High</option>
+            <option selected>Medium</option>
+            <option>Low</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button class="btn-secondary" onclick="closeModal()">Cancel</button>
+          <button class="btn-primary" onclick="addTask()">Add Task</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
