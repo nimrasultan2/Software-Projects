@@ -1,0 +1,515 @@
+/* ============================================================
+   NEXUS — DESIGN TOKENS
+   Light, practical operations dashboard. Maroon as an accent only.
+   No dark mode. No glassmorphism. Minimal card usage.
+   ============================================================ */
+:root {
+  --primary: #7a263a;
+  --primary-dark: #5e1f2e;
+  --primary-light: #f4e7ea;
+  --primary-tint: #faf7f8;
+
+  --background: #f5f5f3;
+  --surface: #ffffff;
+  --surface-2: #f7f5f5;
+  --border: #e2e0e1;
+
+  --text: #29262a;
+  --muted: #777277;
+  --faint: #a19ca0;
+
+  --success: #3e9b68;
+  --success-soft: #e8f4ee;
+  --warning: #d99a27;
+  --warning-soft: #faf1e0;
+  --critical: #c94b4b;
+  --critical-soft: #fbeaea;
+
+  --font-sans: 'IBM Plex Sans', -apple-system, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --radius: 6px;
+  --radius-sm: 4px;
+  --shadow-sm: 0 2px 8px rgba(40, 30, 35, 0.06);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+
+/* ---------- Layout grids ---------- */
+.grid {
+  display: grid;
+  gap: 14px;
+}
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* ---------- Section: the default container. No border, no shadow. ---------- */
+.section {
+  margin-bottom: 30px;
+}
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.section-head h2 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+/* ---------- Panel: a real bordered container, used sparingly
+   (chart areas, detail panels, tables, overlays). ---------- */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.panel-pad {
+  padding: 16px;
+}
+.panel-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+/* Legacy alias kept so existing component markup (.card) still renders
+   sensibly as a panel — restyled away from the old rounded-glow look. */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px;
+  position: relative;
+}
+.card-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+/* ---------- Compact KPI strip: one panel, internal dividers, not four
+   separate floating cards. ---------- */
+.kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+.kpi-block {
+  padding: 14px 18px;
+  border-right: 1px solid var(--border);
+}
+.kpi-block:last-child {
+  border-right: none;
+}
+.kpi-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.kpi-value {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 6px;
+  color: var(--text);
+}
+.kpi-delta {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  margin-top: 4px;
+  display: inline-block;
+}
+.kpi-delta.up {
+  color: var(--success);
+}
+.kpi-delta.down {
+  color: var(--critical);
+}
+
+/* ---------- Plain list rows (used where a table is overkill) ---------- */
+.list-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 4px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.15s;
+}
+.list-row:last-child {
+  border-bottom: none;
+}
+.list-row:hover {
+  background: var(--surface-2);
+}
+.list-row .row-main {
+  flex: 1;
+  min-width: 0;
+}
+.list-row .row-title {
+  font-size: 13px;
+  font-weight: 500;
+}
+.list-row .row-sub {
+  font-size: 11px;
+  color: var(--faint);
+  margin-top: 2px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.progress {
+  height: 5px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 5px;
+}
+.progress span {
+  display: block;
+  height: 100%;
+  transition: width 0.5s ease;
+}
+
+/* ---------- Data table: used for hospitals, incidents, infrastructure ---------- */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.data-table thead th {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+}
+.data-table tbody td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.data-table tbody tr {
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.data-table tbody tr:hover {
+  background: var(--primary-tint);
+}
+.data-table tbody tr.selected {
+  background: var(--primary-light);
+}
+.data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+.data-table .cell-mono {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+.table-wrap {
+  overflow-x: auto;
+}
+
+/* ---------- Status text/pill: used sparingly, only where it clarifies status ---------- */
+.status-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+.status-text.critical {
+  color: var(--critical);
+}
+.status-text.high {
+  color: var(--warning);
+}
+.status-text.medium {
+  color: var(--primary);
+}
+.status-text.low,
+.status-text.normal,
+.status-text.good {
+  color: var(--success);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.pill.critical {
+  background: var(--critical-soft);
+  color: var(--critical);
+}
+.pill.high {
+  background: var(--warning-soft);
+  color: var(--warning);
+}
+.pill.medium {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+.pill.low,
+.pill.normal,
+.pill.good {
+  background: var(--success-soft);
+  color: var(--success);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+.btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.btn.primary {
+  background: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  font-weight: 600;
+}
+.btn.primary:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+  color: #ffffff;
+}
+.btn.danger {
+  background: var(--critical);
+  color: #fff;
+  border-color: var(--critical);
+}
+.btn.danger:hover {
+  background: #b53f3f;
+  border-color: #b53f3f;
+  color: #fff;
+}
+.btn.ghost {
+  background: transparent;
+}
+.btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  border-color: var(--border);
+  color: var(--text);
+  background: var(--surface);
+}
+
+.tag-filter {
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--surface);
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.tag-filter:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+.tag-filter.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.chart-wrap {
+  position: relative;
+  height: 220px;
+}
+.chart-wrap.small {
+  height: 160px;
+}
+
+input[type='text'] {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 7px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+}
+input[type='text']:focus,
+button:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 1px;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--muted);
+}
+.detail-row b {
+  color: var(--text);
+  font-weight: 500;
+}
+
+.empty-note {
+  font-size: 13px;
+  color: var(--faint);
+}
+
+.hidden {
+  display: none !important;
+}
+
+kbd {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 7px;
+  color: var(--text);
+}
+
+.page {
+  animation: pageFade 0.15s ease;
+}
+@keyframes pageFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ---------- Responsive grid collapse ---------- */
+@media (max-width: 900px) {
+  .grid-4,
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kpi-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .kpi-block:nth-child(2) {
+    border-right: none;
+  }
+}
+@media (max-width: 560px) {
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .kpi-strip {
+    grid-template-columns: 1fr;
+  }
+  .kpi-block {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .kpi-block:last-child {
+    border-bottom: none;
+  }
+}

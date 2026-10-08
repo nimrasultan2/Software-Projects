@@ -1,0 +1,26 @@
+.hospital-mini {
+  cursor: pointer;
+}
+.mini-pct {
+  font-size: 12px;
+  color: var(--faint);
+}
+.zone-pills {
+  display: flex;
+  flex-direction: column;
+}
+.zone-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-weight: 500;
+  font-size: 13px;
+}
+.zone-item:last-child {
+  border-bottom: none;
+}
+.zone-level {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
