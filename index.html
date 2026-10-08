@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Velocity Experience — a cinematic automotive digital experience."
+    />
+    <title>Velocity Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- LOADING SCREEN -->
+    <div class="loader" id="loader">
+      <div class="loader-grid"></div>
+      <div class="loader-content">
+        <p class="eyebrow">VELOCITY AUTOMOTIVE</p>
+        <h1>VELOCITY</h1>
+        <div class="loader-bottom">
+          <span id="loaderText">INITIALIZING EXPERIENCE</span>
+          <span><strong id="loaderPercent">0</strong>%</span>
+        </div>
+        <div class="loader-bar">
+          <span id="loaderProgress"></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+      <a href="#hero" class="logo">V<span>/</span>E</a>
+
+      <nav class="desktop-nav">
+        <a href="#performance">Performance</a>
+        <a href="#showcase">Vehicles</a>
+        <a href="#design">Design</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+
+      <a href="#experience" class="nav-cta">Explore <span>↗</span></a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="mobile-menu-bg"></div>
+      <div class="mobile-menu-content">
+        <p class="eyebrow">VELOCITY EXPERIENCE</p>
+        <a href="#hero">01 <span>Home</span></a>
+        <a href="#performance">02 <span>Performance</span></a>
+        <a href="#showcase">03 <span>Vehicles</span></a>
+        <a href="#design">04 <span>Design</span></a>
+        <a href="#gallery">05 <span>Gallery</span></a>
+        <a href="#experience">06 <span>Experience</span></a>
+      </div>
+    </div>
+
+    <main>
+      <!-- HERO -->
+      <section class="hero section-dark" id="hero">
+        <div class="hero-orb"></div>
+        <div class="hero-lines"></div>
+
+        <div class="hero-content">
+          <p class="eyebrow hero-eyebrow">THE NEW STANDARD OF MOTION</p>
+
+          <h1 class="hero-title">
+            <span>ENGINEERED</span>
+            <span>TO <em>MOVE.</em></span>
+          </h1>
+
+          <p class="hero-copy">
+            Precision, performance and design converge in a machine created for
+            those who refuse to stand still.
+          </p>
+
+          <a href="#showcase" class="primary-btn">
+            <span>Explore the collection</span>
+            <i>↗</i>
+          </a>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-wrap" data-speed="0.15">
+            <img
+              src="assets/hero-car.jpg"
+              alt="Futuristic dark performance vehicle"
+            />
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+
+        <div class="hero-meta">
+          <span>VX-01</span>
+          <span>2026 / PERFORMANCE SERIES</span>
+        </div>
+
+        <div class="scroll-cue">
+          <span>SCROLL TO EXPLORE</span>
+          <i></i>
+        </div>
+      </section>
+
+      <!-- PERFORMANCE -->
+      <section class="performance section-light" id="performance">
+        <div class="section-heading reveal">
+          <p class="eyebrow">01 / PERFORMANCE</p>
+          <h2>Numbers that<br /><span>move differently.</span></h2>
+        </div>
+
+        <div class="stats-grid">
+          <article class="stat reveal">
+            <span class="stat-number" data-target="2.9">0</span><small>s</small>
+            <p>0—100 KM/H</p>
+          </article>
+
+          <article class="stat reveal">
+            <span class="stat-number" data-target="320">0</span><small>+</small>
+            <p>MAX SPEED / KM/H</p>
+          </article>
+
+          <article class="stat reveal">
+            <span class="stat-number" data-target="780">0</span
+            ><small>HP</small>
+            <p>MAX POWER</p>
+          </article>
+
+          <article class="stat reveal">
+            <span class="stat-number" data-target="640">0</span
+            ><small>KM</small>
+            <p>EST. RANGE</p>
+          </article>
+        </div>
+
+        <div class="performance-line reveal"></div>
+
+        <div class="performance-note reveal">
+          <span>01</span>
+          <p>
+            Every component has a purpose. Every movement has been calculated.
+            Performance isn't added to the design — it is built into it.
+          </p>
+        </div>
+      </section>
+
+      <!-- VEHICLE SHOWCASE -->
+      <section class="showcase section-dark" id="showcase">
+        <div class="section-heading reveal">
+          <p class="eyebrow">02 / VEHICLE COLLECTION</p>
+          <h2>Three forms.<br /><span>One philosophy.</span></h2>
+        </div>
+
+        <div class="vehicle-grid">
+          <article class="vehicle-card tilt-card reveal">
+            <div class="card-image">
+              <img
+                src="assets/car-01.jpg"
+                alt="Velocity VX-01 front three-quarter view"
+              />
+              <div class="card-number">01</div>
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-info">
+              <div>
+                <p class="card-type">PERFORMANCE COUPE</p>
+                <h3>VX—01</h3>
+              </div>
+              <span class="card-arrow">↗</span>
+            </div>
+            <div class="card-specs">
+              <span>780 HP</span>
+              <span>2.9 SEC</span>
+              <span>320 KM/H</span>
+            </div>
+          </article>
+
+          <article class="vehicle-card tilt-card reveal">
+            <div class="card-image">
+              <img src="assets/car-02.jpg" alt="Velocity VX-02 side profile" />
+              <div class="card-number">02</div>
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-info">
+              <div>
+                <p class="card-type">GRAND TOURER</p>
+                <h3>VX—02</h3>
+              </div>
+              <span class="card-arrow">↗</span>
+            </div>
+            <div class="card-specs">
+              <span>620 HP</span>
+              <span>3.4 SEC</span>
+              <span>610 KM</span>
+            </div>
+          </article>
+
+          <article class="vehicle-card tilt-card reveal">
+            <div class="card-image">
+              <img
+                src="assets/car-03.jpg"
+                alt="Velocity VX-03 rear three-quarter view"
+              />
+              <div class="card-number">03</div>
+              <div class="card-shine"></div>
+            </div>
+            <div class="card-info">
+              <div>
+                <p class="card-type">ELECTRIC GT</p>
+                <h3>VX—03</h3>
+              </div>
+              <span class="card-arrow">↗</span>
+            </div>
+            <div class="card-specs">
+              <span>710 HP</span>
+              <span>3.1 SEC</span>
+              <span>640 KM</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- DESIGN -->
+      <section class="design section-dark" id="design">
+        <div class="design-image reveal">
+          <img
+            src="assets\gallery-03.jpg"
+            alt="Close-up of futuristic vehicle bodywork"
+          />
+          <div class="image-overlay"></div>
+          <span class="image-label">FORM / FUNCTION</span>
+        </div>
+
+        <div class="design-copy reveal">
+          <p class="eyebrow">03 / DESIGN LANGUAGE</p>
+          <h2>Calm at<br /><span>first glance.</span></h2>
+          <p>
+            Sculpted surfaces, controlled lighting and purposeful proportions
+            create a silhouette that looks fast before it ever moves.
+          </p>
+          <div class="design-detail">
+            <span>01</span>
+            <p>Adaptive surfaces designed around airflow and visual balance.</p>
+          </div>
+          <div class="design-detail">
+            <span>02</span>
+            <p>Light becomes a design element, not an afterthought.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CINEMATIC GALLERY -->
+      <section class="gallery section-light" id="gallery">
+        <div class="gallery-intro reveal">
+          <p class="eyebrow">04 / DETAILS</p>
+          <h2>Look closer.</h2>
+          <p>Because the smallest details can define the whole experience.</p>
+        </div>
+
+        <div class="gallery-track">
+          <div class="gallery-item gallery-large reveal">
+            <img src="assets/gallery-01.jpg" alt="Vehicle wheel detail" />
+            <span>01 / PRECISION</span>
+          </div>
+
+          <div class="gallery-item gallery-small reveal">
+            <img
+              src="assets/gallery-02.jpg"
+              alt="Futuristic vehicle interior"
+            />
+            <span>02 / INTERIOR</span>
+          </div>
+
+          <div class="gallery-item gallery-medium reveal">
+            <img src="assets/gallery-03.jpg" alt="Vehicle headlight detail" />
+            <span>03 / LIGHT</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXPERIENCE / CTA -->
+      <section class="experience" id="experience">
+        <div class="experience-bg">
+          <img src="assets/hero-car.jpg" alt="" />
+        </div>
+        <div class="experience-overlay"></div>
+
+        <div class="experience-content reveal">
+          <p class="eyebrow">05 / THE EXPERIENCE</p>
+          <h2>THE FUTURE<br /><span>IS IN MOTION.</span></h2>
+          <p>
+            Design without compromise. Performance without noise. A new
+            expression of automotive motion.
+          </p>
+          <a href="#hero" class="primary-btn light-btn">
+            <span>Return to the beginning</span>
+            <i>↑</i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-top">
+        <a href="#hero" class="footer-logo">V<span>/</span>E</a>
+        <p>ENGINEERED FOR THE NEXT MOVE.</p>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 VELOCITY EXPERIENCE</span>
+        <div>
+          <a href="#performance">Performance</a>
+          <a href="#showcase">Vehicles</a>
+          <a href="#design">Design</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+        <a href="#hero" class="back-top">BACK TO TOP ↑</a>
+      </div>
+    </footer>
+
+    <!-- GSAP -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
