@@ -1,0 +1,27 @@
+.toast {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--primary);
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  min-width: 230px;
+  animation: toastIn 0.2s ease;
+  box-shadow: 0 8px 20px rgba(40, 30, 35, 0.12);
+}
+.toast.critical {
+  border-left-color: var(--critical);
+}
+.toast.warn {
+  border-left-color: var(--warning);
+}
+@keyframes toastIn {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

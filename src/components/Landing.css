@@ -1,0 +1,114 @@
+#landing-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 16px;
+}
+#landing-loader .bar {
+  width: 200px;
+  height: 2px;
+  background: var(--border);
+  overflow: hidden;
+}
+#landing-loader .bar span {
+  display: block;
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  animation: load 1s ease forwards;
+}
+@keyframes load {
+  to {
+    width: 100%;
+  }
+}
+#landing-loader p {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.12em;
+}
+
+#landing {
+  position: fixed;
+  inset: 0;
+  background: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.landing-inner {
+  text-align: center;
+}
+.landing-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+}
+.landing-title {
+  font-weight: 700;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  margin-top: 8px;
+}
+.landing-sub {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.enter-btn {
+  margin-top: 36px;
+  padding: 12px 28px;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  transition: background 0.2s, border-color 0.2s;
+}
+.enter-btn:hover {
+  background: var(--primary-dark);
+  border-color: var(--primary-dark);
+}
+.landing-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 48px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.landing-stat b {
+  display: block;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+.landing-stat span {
+  font-size: 11px;
+  color: var(--faint);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 560px) {
+  .landing-stats {
+    gap: 22px;
+  }
+}
