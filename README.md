@@ -1,31 +1,47 @@
-# software stuff ✨
+# RushCrust 🍕
 
-my little corner of software chaos. dashboards, experiences, games, vibes.
+> good pizza. zero wait.
 
-## what's inside
+a smart pizza delivery platform — order, track, and manage everything from one place.
 
-| project | what it do |
-| ------- | ---------- |
-| [Frontier---Workspace](./Frontier---Workspace) | project & team workspace, one frontier for everything |
-| [Nazar---Things-we-admire](./Nazar---Things-we-admire) | quiet gallery of things worth keeping |
-| [Nexus---Smart-City-Command-Centre](./Nexus---Smart-City-Command-Centre) | city ops dashboard, react + vite |
-| [Target-Practice-Game](./Target-Practice-Game) | point. click. hit. repeat. |
-| [Veloce---Velocity-Experience](./Veloce---Velocity-Experience) | cinematic automotive experience |
+##  what's inside
 
-> more coming. this list grows, i grow.
+- **Menu** : browse pizzas, prices, and offerings
+- **Order Now** : place an order in a few clicks
+- **Owner** : order control room: track incoming orders, assign deliveries, see live stats
+- **Driver** : view assigned routes and update delivery status
+- **Social** : campaign previews and scroll-stopping content
+- **Ask Rush** : keyword-matched demo assistant for menu, ordering, delivery, and site questions
+  
+##  stack
 
-##  the stack
+html · css · vanilla javascript
 
-html · css · js · react · vite · tailwind · gsap
+no frameworks. no build tools. just the basics.
 
-##  how to use
-
-pick a branch. read its README. run it. that's the whole thing.
+##  run it
 
 ```bash
-git checkout <branch-name>
+git clone https://github.com/your-username/rushcrust.git
+cd rushcrust
 ```
+
+then open `index.html` in your browser. that's it.
+
+##  structure
+
+```
+rushcrust/
+├── index.html
+├── style.css
+├── script.js
+└── assets/
+```
+
+##  the vibe
+
+bold editorial ui. red + cream palette. monospace accents. a hero that stops the scroll.
 
 ---
 
-some are finished. some are "finished". all of them taught me something. 🫶
+hot and ready. 🍕
